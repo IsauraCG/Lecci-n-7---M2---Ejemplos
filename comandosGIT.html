@@ -40,8 +40,36 @@
             https://docs.github.com/es/get-started/getting-started-with-git/managing-remote-repositories
             )
 
-        
+    /*************************************** Cambios de nombres ****************************************************/
 
+        A) Verificar el estado actual de los archivos, con el siguiente comando:
+        git status
+
+        B) Renombrar el archivo utilizando el comando git mv
+        git mv archivo_antiguo.txt archivo_nuevo.txt
+
+        C) Verificar los cambios realizados
+        git status
+
+        D) ealizar un commit para agregar los cambios al área de preparación.
+        git add .
+        git commit -m "mje descriptivo para el commit"
+        
+/*************************************** Ignorando archivos ****************************************************/
+
+        A) Crea un archivo .gitignore en el directorio de tu proyecto
+
+        B) CREAR archivos.txt y el directorio logs
+
+        C) Abre el archivo .gitignore
+        *.txt
+        logs/
+
+        D) git status (VER RESULTADOS)
+
+        E) NUEVO COMMIT
+        git add .gitignore
+        git commit -m "Agregado archivo .gitignore"
     -->
   </body>
 </html>
