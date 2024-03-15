@@ -54,7 +54,7 @@
         D) ealizar un commit para agregar los cambios al área de preparación.
         git add .
         git commit -m "mje descriptivo para el commit"
-        
+
 /*************************************** Ignorando archivos ****************************************************/
 
         A) Crea un archivo .gitignore en el directorio de tu proyecto
@@ -70,6 +70,59 @@
         E) NUEVO COMMIT
         git add .gitignore
         git commit -m "Agregado archivo .gitignore"
+
+/*************************************** Commits y restauración de archivos ****************************************************/
+        
+        A) Veamos los pasos para realizar un commits
+
+        git status
+
+        B) Veamos los pasos para realizar un commits
+
+        git add nombre_de_tu_archivo
+
+        C) Veamos los pasos para realizar un commits
+
+        git commit -m "Tu descripción"
+
+        D) Deshacer cambios en el directorio de trabajo (NO)
+        (Si deseas deshacer los cambios realizados en un archivo y 
+        volver a la versión anterior almacenada en el último commit, utiliza el siguiente comando:)
+
+        git checkout -- nombre_de_tu_archivo
+
+        E) Restaurar archivos desde el área de preparación: (NO)
+        git reset HEAD nombre_de_tu_archivo
+
+        F) Restaurar un commit anterior: (NO)
+        (Si necesitas deshacer un commit y restaurar los archivos a una versión anterior, 
+        puedes utilizar el siguiente comando:)
+
+        git revert hash_del_commit
+
+    /*************************************** Ramas, uniones, conflictos y tags ****************************************************/
+
+        A) Para crear una rama en git:
+        Para ver las ramas en un repositorio Git, ejecuta el comando:
+        git branch
+
+        Para ver tanto las ramas de seguimiento remoto como las ramas locales
+        git branch -a
+
+        (Crear una nueva Rama)
+        Para crear una nueva rama, ejecutar el comando:
+        git branch nombre_rama
+
+        B) Ahora, nos movemos hacia la nueva rama:
+        git checkout nombre-rama
+        
+        Haz los cambios necesarios en los archivos de tu proyecto mientras 
+        te encuentras en la rama "nueva-rama". 
+        Por ejemplo, podes agregar un nuevo archivo o modificar el código existente. 
+        
+        Realiza un commit en a nueva rama creada:
+        git add .
+        git commit -m "Agregado archivo y cambios en la nueva rama"
     -->
   </body>
 </html>
