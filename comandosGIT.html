@@ -8,17 +8,29 @@
   <body>
     <!-- 
 
+    PASOS:
+
+    1) LEER El material 
+
+    2) INSTALAR GITHUB
+
+    3) INSTALAR https://git-scm.com/  
+
+    4)
+
+        A) Verificar la instalación de Git:
+        Para asegurarte de que Git se haya instalado correctamente, puedes ejecutar el siguiente comando en Git Bash:
+
         git --version
 
-        B) Configurar tu nombre de usuario y dirección de correo electrónico:
+        B) Configurar tu nombre de usuario y dirección de correo electrónico
+        Es importante configurar tu nombre de usuario y dirección de correo electrónico en Git para que tus commits reflejen 
+        correctamente tu identidad. 
+        Utiliza los siguientes comandos, reemplazando "Tu Nombre" y "tu@email.com" con tus datos reales:
 
         git config --global user.name "Tu Nombre"
         git config --global user.email "tu@email.com"
 
-        C) Crear un nuevo repositorio desde cero:
-        (Si deseas crear un nuevo repositorio en tu computadora desde cero,
-        simplemente navega a la ubicación donde deseas que se encuentre el
-        repositorio y ejecuta los siguientes comandos:)
 
         D) Realizar el primer commit:
         (Para lograrlo, añade todos los archivos modificados y nuevos al área de preparación con el siguiente comando:)
@@ -53,7 +65,7 @@
 
         D) ealizar un commit para agregar los cambios al área de preparación.
         git add .
-        git commit -m "mje descriptivo para el commit"
+        git commit -m "mensaje descriptivo para el commit"
 
 /*************************************** Ignorando archivos ****************************************************/
 
@@ -85,16 +97,28 @@
 
         git commit -m "Tu descripción"
 
-        D) Deshacer cambios en el directorio de trabajo (NO)
+        D) Agregar los archivos modificados al área de preparación: 
+        Utiliza el siguiente comando para agregar los archivos modificados al área de preparación (staging area):
+
+        git add nombre_de_tu_archivo
+
+        E) Realizar el commit: Una vez que los archivos están en el área de preparación, 
+        puedes realizar el commit con el siguiente comando: 
+        (Cambia “tu descripción” Por una muy breve de los cambios realizados)
+
+        git commit -m "Tu descripción
+
+        F) Deshacer cambios en el directorio de trabajo (NO)
         (Si deseas deshacer los cambios realizados en un archivo y 
         volver a la versión anterior almacenada en el último commit, utiliza el siguiente comando:)
 
         git checkout -- nombre_de_tu_archivo
 
-        E) Restaurar archivos desde el área de preparación: (NO)
+        G) Restaurar archivos desde el área de preparación: (NO)
+
         git reset HEAD nombre_de_tu_archivo
 
-        F) Restaurar un commit anterior: (NO)
+        H) Restaurar un commit anterior: (NO)
         (Si necesitas deshacer un commit y restaurar los archivos a una versión anterior, 
         puedes utilizar el siguiente comando:)
 
@@ -102,6 +126,11 @@
 
     /*************************************** Ramas, uniones, conflictos y tags ****************************************************/
 
+        Las ramas en Git son líneas de desarrollo independientes que permiten trabajar en diferentes características 
+        o solucionar problemas sin afectar la rama principal, la cual, mayormente se nombra como master. 
+        Cada rama tiene su historial de commits y cambios específicos, lo que facilita el desarrollo paralelo y la 
+        organización del trabajo en equipo.
+        
         A) Para crear una rama en git:
         Para ver las ramas en un repositorio Git, ejecuta el comando:
         git branch
@@ -116,13 +145,169 @@
         B) Ahora, nos movemos hacia la nueva rama:
         git checkout nombre-rama
         
-        Haz los cambios necesarios en los archivos de tu proyecto mientras 
+        C) Haz los cambios necesarios en los archivos de tu proyecto mientras 
         te encuentras en la rama "nueva-rama". 
         Por ejemplo, podes agregar un nuevo archivo o modificar el código existente. 
         
-        Realiza un commit en a nueva rama creada:
+        D) Realiza un commit en a nueva rama creada:
         git add .
         git commit -m "Agregado archivo y cambios en la nueva rama"
+
+        E) Vuelve a la rama principal (por ejemplo, "master"):
+        git checkout main
+
+        F) Por último, es momento de fusionar la rama "nombre-rama" en la rama principal:
+        git merge nombre-rama
+
+            "Fusiones (merges)
+            Las fusiones se utilizan para combinar los cambios de una rama en otra rama, 
+            generalmente para unir una rama de desarrollo a la rama principal.
+            Podes notar, que en el ejemplo anterior, utilizamos una fusión en el último paso, 
+            fusionando la nueva rama creada con el menú principal.
+            Por lo que ya tienes la demostración del funcionamiento."
+
+        G) Ahora puedes realizar un push a tu repositorio remoto
+        git push
+
+        H) El modo de trabajar con etiquetas:
+        Antes que nada, debemos verificar los commits existentes. 
+        Para eso utiliza el siguiente comando para ver el historial de commits en tu repositorio:
+
+        git log --oneline
+        (Esto mostrará una lista de commits con sus identificadores únicos “hash” y mensajes descriptivos.)
+
+        I) Es momento de crear una etiqueta ligera (lightweight tag):
+        Podes crear una etiqueta ligera en un commit específico utilizando el siguiente comando:
+
+        git tag nombre_etiqueta commit_hash
+
+        Cambia “nombre_etiqueta” por el nombre que quieras usar y agrega commit_hash con el 
+        identificador único del commit al que deseas etiquetar.
+        (Ejm: git tag cambios_nueva_rama abcdef123456)
+
+        Conflictos
+        Los conflictos ocurren cuando Git no puede combinar automáticamente los cambios de dos ramas debido a modificaciones 
+        conflictivas en las mismas líneas de código.
+        Git indicará los archivos con conflictos y te mostrará los cambios en conflicto. 
+        Debes resolver los conflictos manualmente editando los archivos afectados y eligiendo qué cambios mantener.
+        Una vez que se resuelven los conflictos, debes realizar un commit para finalizar la fusión.
+
+
+    /******************************************** Clonar, Fetch, Pull y Fork ****************************/
+    A) Clonar un repositorio desde GitHub:
+    Podes clonar un repositorio existente desde GitHub en tu computadora utilizando Git Bash. 
+    Ve a la página del repositorio en GitHub y copia la URL del repositorio. 
+    Luego, en Git Bash, navega a la ubicación donde deseas clonar el repositorio y ejecuta el siguiente comando, 
+    reemplazando "URL_del_repositorio" con la URL que copiaste:
+
+    git clone URL_del_repositorio
+
+    B) Repositorios remotos:
+    Un repositorio remoto no es más que una copia del repositorio Git en un servidor remoto, como GitHub, GitLab o Bitbucket.
+    El cual permite colaborar con otros desarrolladores, compartir el código y realizar un seguimiento de los cambios 
+    en un proyecto de manera centralizada.
+
+    Una gran ventaja es que se puede clonar un repositorio remoto en tu máquina local utilizando el comando git clone.
+    git clone https://github.com/usuario/turepo.git
+
+    Recuerda que debes cambiar https://github.com/usuario/turepo.git por la url de tu proyecto.
+    Después de clonar, tendrás una copia local del repositorio y podrás realizar cambios y commits en tu máquina.
+
+    C) Push 
+    Utilizaremos push para que los cambios realizados se guarden en el repositorio remoto. 
+    Vamos a crearle algunos cambios, para que sean guardados utilizando push.
+
+    - Puedes realizar cambios en el archivo:
+    Navega al directorio del repositorio clonado y realiza los cambios deseados en un archivo específico utilizando 
+    el editor de texto o el IDE de tu elección.
+
+    - Verificar el estado de los cambios:
+    Utiliza el comando git status para verificar el estado de los cambios en tu repositorio local. 
+    Deberías ver el archivo modificado listado como un archivo sin seguimiento.
+
+    - Agregar los cambios al área de preparación:
+    Utiliza el comando git add seguido del nombre del archivo modificado para agregar los cambios al área de preparación 
+    (staging area). Por ejemplo:
+        git add nombre_del_archivo_modificado
+
+    - Realizar el commit:
+    Realiza un commit para guardar los cambios en el repositorio local.
+    Utiliza el comando git commit -m seguido de un mensaje descriptivo para el commit. 
+
+    - Realizar el push:
+    Utiliza el comando git push seguido del nombre del repositorio remoto y la rama a la que deseas enviar tus cambios.
+    Reemplaza origin con el nombre del repositorio remoto (generalmente es origin si clonaste el repositorio) 
+    y master con el nombre de la rama en la que deseas realizar el push.
+        git push origin master
+    
+    - Opcional:
+    Si es la primera vez que haces un push en esta rama, es posible que necesites agregar la opción -u para establecer 
+    la rama upstream:
+        git push -u origin master
+
+    - Proporciona tus credenciales:
+    Si es la primera vez que realizas un push a este repositorio remoto o si se requiere autenticación, se te solicitará ingresar 
+    tus credenciales de GitHub (nombre de usuario y contraseña o token de acceso personal).
+
+    - Espera a que finalice el push:
+    Git enviará tus cambios al repositorio remoto en GitHub. Una vez que el push se complete, verás un mensaje indicando que los 
+    cambios se han enviado correctamente.
+
+    D) Pull:
+    El comando pull se utiliza para recuperar los cambios del repositorio remoto y fusionarlos con tu copia local. 
+    Este comando se combina con el comando fetch (lo veremos a continuación) que es para recuperar y con el comando merge 
+    que es para fusionar (este ya lo trabajamos anteriormente) en un solo paso.
+    Utiliza el comando git pull seguido del nombre de la rama y el repositorio remoto desde donde deseas obtener los cambios.
+
+    - Verificar el estado de tus cambios locales:
+    Antes de realizar un pull, es recomendable verificar el estado de tus cambios locales. 
+    Utiliza el comando git status para asegurarte de que no tengas cambios sin confirmar.
+    ealizar un pull desde el repositorio remoto:
+    Utiliza el comando git pull seguido del nombre del repositorio remoto y la rama de la cual deseas obtener los cambios.
+    
+        git pull origin master
+        
+    Reemplaza origin con el nombre del repositorio remoto 
+    (generalmente es origin si clonamos el repositorio) y master con el nombre de la rama desde la cual deseas obtener los cambios.
+    
+    - Proporcionar sus credenciales:
+    Si se requiere autenticación para acceder al repositorio remoto, es posible que se te solicite ingresar tus credenciales 
+    de GitHub (nombre de usuario y contraseña o token de acceso personal).
+
+    - Esperar a que finalice el pull:
+    Git recuperará los últimos cambios del repositorio remoto y los fusionará automáticamente en tu rama local. 
+    Si no hay conflictos, el pull se completará sin problemas.
+    En caso de que haya conflictos, Git te notificará y mostrará los archivos afectados. 
+    Deberás resolver los conflictos manualmente editando los archivos en conflicto y luego hacer un commit para 
+    finalizar la fusión
+
+    /**************************************** Pull request ********************************/
+
+    ¿Qué es un pull request?
+    Un pull request o solicitud de extracción es una función clave en plataformas de alojamiento de repositorios como GitHub. 
+    Es un mecanismo que permite a los desarrolladores colaborar y revisar los cambios realizados en un repositorio 
+    antes de que sean fusionados en la rama principal o en otra rama.
+    Podemos verlo como una solicitud que un desarrollador envía al propietario o colaboradores del repositorio para que 
+    revisen y consideren los cambios propuestos. 
+
+    A) Administrar un Pull Request
+    Administrar Pull Requests es una parte fundamental del flujo de trabajo colaborativo en GitHub. 
+
+    B) Crear un Pull Request:
+        - Desde la página principal del repositorio en GitHub, haz clic en el botón "New pull request" (Nuevo pull request).
+        - Selecciona la rama de la cual deseas fusionar los cambios (rama base) y la rama que contiene los cambios que deseas 
+        fusionar (rama comparada).
+        - Proporciona un título descriptivo y una descripción detallada de los cambios realizados en la rama comparada.
+        - Revisa los cambios y, si es necesario, agrega comentarios o realiza modificaciones adicionales.
+        - Finalmente, haz clic en el botón "Create pull request" (Crear pull request) para enviar el Pull Request.
+
+    C) Revisar y comentar en el Pull Request:
+    Otros colaboradores pueden revisar tus cambios y dejar comentarios en el Pull Request.
+    Podes responder a los comentarios, hacer modificaciones adicionales o discutir los cambios propuestos antes de que se fusionen.
+
+
+
+
     -->
   </body>
 </html>
